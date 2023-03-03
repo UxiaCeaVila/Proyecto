@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Lista ventas </h3>
+<a class="btn btn-primary btn-xs" href="{% url 'gestion:nuevaVenta'  %}" >Nueva venta</a>
+
+{% for venta in ventas %}
+
+<div class="row mt-3">
+    <div class="col">
+        <hr />
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Venta ID</th>
+                <th>Codigo producto</th>
+                <th>Precio</th>
+                <th>Unidades</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{venta.idventa}}</td>
+                <td>{{venta.idproduct}}</td>
+                <td>{{venta.precio}}</td>
+                <td>{{venta.unidades}}</td>
+                <td><a class="btn btn-primary btn-xs" href="{% url 'gestion:devolverVenta' venta.idventa %}">
+                    Devolución</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

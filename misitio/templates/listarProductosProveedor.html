@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Lista Productos</h3>
+<a  class="btn btn-primary btn-xs" href="{% url 'gestion:nuevoProductProvedor' %}">Añadir productos de provedores</a>
+
+{% for productoprov in productosprov %}
+<div class="row mt-3">
+    <div class="col">
+        <hr />
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID Producto</th>
+                <th>ID Proveedor</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Unidades</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{productoprov.idproductoprove}}</td>
+                <td>{{productoprov.nombre}}</td>
+                <td>{{productoprov.idprovedor}}</td>
+                <td>{{productoprov.precio}}</td>
+                <td>{{productoprov.unidades}}</td>
+                <td><a class="btn btn-primary btn-xs" href="{% url 'gestion:borrarCliente' client.idclient %}" >
+                    Borrar Producto</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

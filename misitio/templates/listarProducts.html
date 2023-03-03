@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Lista Productos</h3>
+<a  class="btn btn-primary btn-xs" href="{% url 'gestion:nuevoProducts' %}">Añadir productos</a>
+<table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Numero de serie</th>
+                <th>Nombre</th>
+                <th>Modelo</th>
+                <th>Version</th>
+                <th>Precio</th>
+            </tr>
+            </thead>
+</table>
+{% for product in products %}
+<div class="row mt-3">
+    <div class="col">
+        <hr />
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Numero de serie</th>
+                <th>Nombre</th>
+                <th>Modelo</th>
+                <th>Version</th>
+                <th>Precio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{product.numserie}}</td>
+                <td>{{product.nombre}}</td>
+                <td>{{product.modelo}}</td>
+                <td>{{product.version}}</td>
+                <td>{{product.precio}}</td>
+                <td><a class="btn btn-primary btn-xs" href="{% url 'gestion:borrarProducts' product.numserie %}">
+                    Borrar producto</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Lista Clientes</h3>
+<a class="btn btn-primary btn-xs" href="{% url 'gestion:nuevoCliente' %}" >Añadir cliente</a>
+
+</table>
+{% for client in clients %}
+<div class="row mt-1">
+    <div class="col">
+        <hr />
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre y apellidos</th>
+                <th>DNI</th>
+                <th>Fecha nacimiento</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{client.idclient}}</td>
+                <td>{{client.nombre}}</td>
+                <td>{{client.dniclient}}</td>
+                <td>{{client.fecNac}}</td>
+                <td><a class="btn btn-primary btn-xs" href="{% url 'gestion:borrarCliente' client.idclient %}" >
+                    Borrar Cliente</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

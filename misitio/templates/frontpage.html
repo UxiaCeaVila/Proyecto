@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <h3>INICIO</h3>
+
+
+
+        <div class="center margen">
+                <img  src="http://ignaciogavilan.com/wp-content/uploads/2022/02/grupo-robots-1.jpg" alt=""/>
+                <p><a class="btn btn-primary btn-xs center" href="{% url 'gestion:listarProducts'%}">
+                        Productos</a></p>
+                <br/>
+                <a class="btn btn-primary btn-xs center" href="{% url 'gestion:listarClientes'%}">
+                    Clientes</a>
+                <br/>
+                <a class="btn btn-primary btn-xs center" href="{% url 'gestion:listaProvedores'%}">
+                    Provedores</a>
+                <br/>
+                <a class="btn btn-primary btn-xs center" href="{% url 'gestion:listaProductProvedores'%}">
+                    Productos Provedores</a>
+                <br/>
+        </div>
+
+{% endblock %}

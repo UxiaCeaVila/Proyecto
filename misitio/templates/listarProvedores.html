@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Lista Provedor</h3>
+<a  class="btn btn-primary btn-xs" href="{% url 'gestion:nuevoProvedor' %}">Añadir Provedor</a>
+
+{% for provedor in provedores %}
+<div class="row mt-3">
+    <div class="col">
+        <hr />
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID Provedor</th>
+                <th>Nombre</th>
+                <th>Lolcalizacion</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{provedor.numserie}}</td>
+                <td>{{provedor.nombre}}</td>
+                <td>{{provedor.lolcalizacion}}</td>
+                <td><a class="btn btn-primary btn-xs" href="{% url 'gestion:borrarCliente' client.idclient %}" >
+                    Borrar Provedor</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
